@@ -15,15 +15,20 @@ configuration files for alternate environments since the `Vagrantfile` is design
 The `Vagrantfile` uses the `vagrant-hostmanager` plugin and makes sure that all entries are consistent between guests
 and also the host itself. The plugin must be installed with `vagrant plugin install vagrant-hostmanager`.
 
+#### Pre-requisities
+
+* Vagrant www.vagrantup.com
+* Virtualbox www.virtualbox.org
+
 #### Instructions
 
 Clone the vagrant-foreman box
-
+  
               git clone https://github.com/misug/foreman-vagrant.git
 
-Move into the vagrant-foremn dir and clone local puppet repo
+Move into the vagrant-foremn dir and clone local puppet repo (development branch)
 
-              git clone https://github.com/dmichelotto/puppet-modules.git
+              git clone https://github.com/dmichelotto/puppet-modules.git -b development
 
 Suggest provisioning Foreman VM first, before agents. It will takes several minutes to create.
 ```sh
