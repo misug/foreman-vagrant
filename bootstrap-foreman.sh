@@ -21,10 +21,4 @@ else
     # automatically creating the host in Foreman's database
     sudo puppet agent --test --waitforcert=60
 
-    # Install some optional puppet modules on Foreman server to get started...
-    sudo puppet module install -i /etc/puppet/environments/production/modules puppetlabs-ntp
-    sudo puppet module install -i /etc/puppet/environments/production/modules puppetlabs-git
-    sudo puppet module install -i /etc/puppet/environments/production/modules puppetlabs-vcsrepo
-    sudo puppet module install -i /etc/puppet/environments/production/modules garethr-docker
-    sudo puppet module install -i /etc/puppet/environments/production/modules garystafford-fig
 fi

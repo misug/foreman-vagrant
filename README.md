@@ -1,3 +1,7 @@
+## Disclaimer
+Vagrant box forked from [garystafford/foreman-vagrant|https://github.com/garystafford/foreman-vagrant] serving for local Foreman/Puppet testing.
+
+
 ## Foreman-Puppet-Vagrant Multiple-VM Creation and Configuration
 Automatically provision multiple VMs with Vagrant and VirtualBox. Automatically install, configure, and test
 Foreman and Puppet Agents on those VMs.
@@ -13,6 +17,15 @@ The `Vagrantfile` uses the `vagrant-hostmanager` plugin and makes sure that all 
 and also the host itself. The plugin must be installed with `vagrant plugin install vagrant-hostmanager`.
 
 #### Instructions
+
+Clone the vagrant-foreman box
+
+https://github.com/misug/foreman-vagrant.git
+
+Move into the vagrant-foremn dir and clone local puppet repo
+
+git clone https://github.com/dmichelotto/puppet-modules.git
+
 Suggest provisioning Foreman VM first, before agents. It will takes several minutes to create.
 ```sh
 vagrant up theforeman.example.com
