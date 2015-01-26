@@ -39,6 +39,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.customize ["modifyvm", :id, "--name", node_name]
       end
 
+      # synchronize git repo moduels and environemnts in vm
+      config.vm.synced_folder "puppet-modules/modules", "/etc/puppet/modules",
+        owner: "root", group: "root"
+      config.vm.synced_folder "puppet-modules/environments", "/etc/puppet/environments",
+        owner: "root", group: "root"
+
       config.vm.provision :shell, :path => node_values[':bootstrap']
     end
   end
