@@ -11,7 +11,6 @@ nodes_config = (JSON.parse(File.read("nodes.json")))['nodes']
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "chef/centos-6.5"
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
   config.hostmanager.ignore_private_ip = false
@@ -23,6 +22,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.define node_name do |config|
       # configures all forwarding ports in JSON array
+      if node_values[':mybox'] != nil
+        config.vm.box = node_values[':mybox']
+      else
+        config.vm.box = "chef/centos-6.5"
+      end
+
       ports = node_values['ports']
       ports.each do |port|
         config.vm.network :forwarded_port,
@@ -49,3 +54,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 end
+
